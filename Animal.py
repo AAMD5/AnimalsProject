@@ -4,6 +4,7 @@ class Animal(ABC):
 
     #Attributes
 
+    name = None
     color = None
     Age = None
     Speed = None
@@ -75,7 +76,6 @@ class Mammal(Animal):
 class Cat(Mammal):
      #Attributes
 
-    name = None
     collar_color = None
 
     #Constructors
@@ -98,7 +98,6 @@ class Cat(Mammal):
 class Bat(Mammal):
      #Attributes
 
-    name = None
     isFlying = False
 
     #Constructors
@@ -129,7 +128,6 @@ class Bat(Mammal):
 class Platypus(Mammal):
      #Attributes
 
-    name = None
 
     #Constructors
     def __init__(self):
@@ -155,9 +153,9 @@ class Bird(Animal):
     
     #Attributes
     
-    name = None
     wings = None
     legs = None
+    isFlying = False
     
     def __init__(self):
         self.value = "Bird"
@@ -178,3 +176,11 @@ class Bird(Animal):
         
     def eat(self):
         return "I eat worms"
+    
+    def flying(self):
+        self.isFlying = True
+        return self.isFlying
+    
+    def landing(self):
+        self.isFlying = False
+        return self.isFlying
