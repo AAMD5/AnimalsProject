@@ -6,14 +6,20 @@ class Animal(ABC):
 
     name = None
     color = None
-    Age = None
-    Speed = None
+    age = None
+    speed = None
     isDead = False
     weight = None
 
     #Constructors
-    def __init__(self):
+    def __init__(self, name, color, age, speed, isDead, weight):
         self.value = "Animal"
+        self.name = name
+        self.color = color
+        self.age = age
+        self.speed = speed
+        self.isDead = isDead
+        self.weight = weight
 
     #Methods
     @abstractmethod # so these are methods that will be defined later
@@ -44,6 +50,7 @@ class Animal(ABC):
     def dead(self):
         self.isDead = True
         return self.isDead
+    
 
 class Mammal(Animal):
     #Attributes
@@ -51,7 +58,8 @@ class Mammal(Animal):
     legs = None
 
     #Constructors
-    def __init__(self):
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
         self.value = "Mammal"
 
     #Methods
@@ -72,6 +80,7 @@ class Mammal(Animal):
 
     def type(self):
         return self.value
+    
 
 class Cat(Mammal):
      #Attributes
@@ -79,7 +88,8 @@ class Cat(Mammal):
     collar_color = None
 
     #Constructors
-    def __init__(self):
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
         self.value = "Cat"
     
     #Methods
@@ -95,13 +105,15 @@ class Cat(Mammal):
     def breathe(self):
         return "I breathe through my nose"
     
+    
 class Bat(Mammal):
      #Attributes
 
     isFlying = False
 
     #Constructors
-    def __init__(self):
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
         self.value = "Bat"
     
     #Methods
@@ -125,12 +137,14 @@ class Bat(Mammal):
         self.isFlying = False
         return self.isFlying
     
+    
 class Platypus(Mammal):
      #Attributes
 
 
     #Constructors
-    def __init__(self):
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
         self.value = "Budgie"
     
     #Methods
@@ -148,6 +162,7 @@ class Platypus(Mammal):
     
     def breathe(self):
         return "I breathe through my nose"
+    
 
 class Bird(Animal):
     
@@ -157,7 +172,8 @@ class Bird(Animal):
     legs = None
     isFlying = False
     
-    def __init__(self):
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
         self.value = "Bird"
         
     #Methods

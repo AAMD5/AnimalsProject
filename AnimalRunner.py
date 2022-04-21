@@ -8,13 +8,10 @@ from Animal import *
 
 # Creating a cat named Bob
 
-Bob = Cat()
-Bob.name = "Bob"
-Bob.age = 5
+# name, color, age, speed, isDead, weight
+Bob = Cat("Bob", "brown", 5, 20, False, 20)
 Bob.legs = 4
-Bob.speed = 20
 Bob.collar_color = "black"
-Bob.weight = 20
 
 print("My name is", Bob.name)
 print(Bob.eat())
@@ -27,13 +24,10 @@ print("\n")
 
 # Creating a bat named Dracula
 
-Dracula = Bat()
-Dracula.name = "Dracula"
-Dracula.age = 5
+# name, color, age, speed, isDead, weight
+Dracula = Bat("Dracula", "black", 5, 20, False, 10)
 Dracula.legs = 4
 Dracula.wings = 2
-Dracula.speed = 20
-Dracula.weight = 10
 
 print("My name is", Dracula.name)
 print(Dracula.eat())
@@ -51,12 +45,9 @@ print("\n")
 
 # Creating a mammal Platypus named Platypus
 
-Platypus = Platypus()
-Platypus.name = "Platypus"
-Platypus.age = 5
+# name, color, age, speed, isDead, weight
+Platypus = Platypus("Platypus", "white", 5, 20, False, 20)
 Platypus.legs = 4
-Platypus.speed = 20
-Platypus.weight = 20
 
 print("My name is", Platypus.name)
 print(Platypus.eat())
@@ -69,14 +60,11 @@ print("\n")
 
 # Creating a bird named Birdie
 
-Birdie = Bird()
-Birdie.name = "Birdie"
-Birdie.age = 5
+# name, color, age, speed, isDead, weight
+Birdie = Bird("Birdie", "blue", 5, 20, False, 2)
 Birdie.legs = 4
-Birdie.speed = 20
 Birdie.wings = 2
 Birdie.collar_color = "black"
-Birdie.weight = 2
 
 print("My name is", Birdie.name)
 print(Birdie.eat())
@@ -90,4 +78,3 @@ print("Birdie's wings are injured, can he fly?")
 print(Birdie.landing())
 print(Birdie.grow())
 print(Birdie.dead())
-
