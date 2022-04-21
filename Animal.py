@@ -110,6 +110,7 @@ class Bat(Mammal):
      #Attributes
 
     isFlying = False
+    wings = None
 
     #Constructors
     def __init__(self, name, color, age, speed, isDead, weight):

@@ -7,7 +7,6 @@ from Animal import *
 # 
 
 # Creating a cat named Bob
-
 # name, color, age, speed, isDead, weight
 Bob = Cat("Bob", "brown", 5, 20, False, 20)
 Bob.legs = 4
@@ -23,7 +22,6 @@ print(Bob.isDead, "I am not dead!")
 print("\n")
 
 # Creating a bat named Dracula
-
 # name, color, age, speed, isDead, weight
 Dracula = Bat("Dracula", "black", 5, 20, False, 10)
 Dracula.legs = 4
@@ -44,22 +42,20 @@ print(Dracula.dead())
 print("\n")
 
 # Creating a mammal Platypus named Platypus
-
 # name, color, age, speed, isDead, weight
-Platypus = Platypus("Platypus", "white", 5, 20, False, 20)
-Platypus.legs = 4
+Platpus = Platypus("Platypus", "white", 5, 20, False, 20)
+Platpus.legs = 4
 
-print("My name is", Platypus.name)
-print(Platypus.eat())
-print(Platypus.move())
-print(Platypus.breathe())
-print(Platypus.reproduce())
-print(Platypus.grow())
-print(Platypus.dead())
+print("My name is", Platpus.name)
+print(Platpus.eat())
+print(Platpus.move())
+print(Platpus.breathe())
+print(Platpus.reproduce())
+print(Platpus.grow())
+print(Platpus.dead())
 print("\n")
 
 # Creating a bird named Birdie
-
 # name, color, age, speed, isDead, weight
 Birdie = Bird("Birdie", "blue", 5, 20, False, 2)
 Birdie.legs = 4
