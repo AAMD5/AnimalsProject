@@ -3,8 +3,8 @@ from Animal import *
 # Animal: name, color, age, speed, weight are global attributes
 # Mammal (Cat, Bat, Budgie): legs
 # Cat: collarcolor
-# Bird: name, wings, legs
-# 
+# Bird: name, wings, legs 
+
 
 # Creating a cat named Bob
 # name, color, age, speed, isDead, weight
