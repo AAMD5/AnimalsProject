@@ -105,7 +105,6 @@ class Cat(Mammal):
     def breathe(self):
         return "I breathe through my nose"
     
-    
 class Bat(Mammal):
      #Attributes
 
@@ -201,3 +200,331 @@ class Bird(Animal):
     def landing(self):
         self.isFlying = False
         return self.isFlying
+
+class Grass():
+    def __init__(self):
+        self.value = "Grass"
+        
+    def eat(self, otherThing):
+        return False, "Grass cannot eat " + str(otherThing.value) + "!"
+        
+class Leaves():
+    def __init__(self):
+        self.value = "Leaves"
+        
+    def eat(self, otherThing):
+        return False, "Leaves cannot eat " + str(otherThing.value) + "!"
+
+# Antelope eats grass
+class Antelope(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Antelope"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Grass":
+            return True, "Antelope eats grass"
+        else:
+            return False, "Antelope cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+    
+# Big-fish eats little-fish
+class Bigfish(Animal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Big-fish"
+    
+    #Methods
+    def type(self):
+        return self.value
+    
+    def reproduce(self):
+        return "I reproduce in water"
+
+    def eat(self, otherThing):
+        if otherThing.value == "Little-fish":
+            return True, "Big fish eats little-fish"
+        else:
+            return False, "Big fish cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I swim"
+    
+    def breathe(self):
+        return "I breathe through my gills"
+    
+# little-fish eats nothing
+class Littlefish(Animal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Little-fish"
+    
+    #Methods
+    def type(self):
+        return self.value
+    
+    def reproduce(self):
+        return "I reproduce in water"
+
+    def eat(self, otherThing):
+        return False, "Little-fish cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I swim"
+    
+    def breathe(self):
+        return "I breathe through my gills"
+    
+# bug eats leaves
+class Bug(Animal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Bug"
+    
+    #Methods
+    def type(self):
+        return self.value
+    
+    def reproduce(self):
+        return "I reproduce in water"
+
+    def eat(self, otherThing):
+        if otherThing.value == "Leaves":
+            return True, "Bug eats leaves"
+        else:
+            return False, "Bug cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I crawl"
+    
+    def breathe(self):
+        return "I breathe"
+    
+# bear eats alot!
+class Bear(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Bear"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Big-fish":
+            return True, "Bear eats Big-Fish"
+        elif otherThing.value == "Bug":
+            return True, "Bear eats Bug"
+        elif otherThing.value == "Leaves":
+            return True, "Bear eats leaves"
+        elif otherThing.value == "Chicken":
+            return True, "Bear eats chicken"
+        elif otherThing.value == "Cow":
+            return True, "Bear eats cow"
+        elif otherThing.value == "Sheep":
+            return True, "Bear eats sheep"
+        else:
+            return False, "Bear cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+    
+# cow eats grass
+class Cow(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Cow"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Grass":
+            return True, "Cow eats Grass"
+        else:
+            return False, "Cow cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+    
+# sheep eats grass
+class Sheep(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Sheep"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Grass":
+            return True, "Sheep eats Grass"
+        else:
+            return False, "Sheep cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+    
+# chicken eats grass
+class Chicken(Bird):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Chicken"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Bug":
+            return True, "Chicken eats Bug"
+        else:
+            return False, "Chicken cannot eat " + str(otherThing.value) + "!"
+        
+# Fox eats chicken and sheep
+class Fox(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Fox"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Chicken":
+            return True, "Fox eats chicken"
+        elif otherThing.value == "Sheep":
+            return True, "Fox eats sheep"
+        else:
+            return False, "Fox cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+
+# Giraffe eats leaves
+class Giraffe(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Giraffe"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Leaves":
+            return True, "Giraffe eats leaves"
+        else:
+            return False, "Girrafe cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+
+# Lion eats antelope and cow
+class Lion(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Lion"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Antelope":
+            return True, "Lion eats antelope"
+        elif otherThing.value == "Cow":
+            return True, "Lion eats cow"
+        else:
+            return False, "Lion cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
+    
+# Panda eats leaves
+class Panda(Mammal):
+     #Attributes
+
+    #Constructors
+    def __init__(self, name, color, age, speed, isDead, weight):
+        super().__init__(name, color, age, speed, isDead, weight)
+        self.value = "Panda"
+    
+    #Methods
+    def type(self):
+        return self.value
+
+    def eat(self, otherThing):
+        if otherThing.value == "Leaves":
+            return True, "Panda eats leaves"
+        else:
+            return False, "Panda cannot eat " + str(otherThing.value) + "!"
+    
+    def move(self):
+        return "I walk or run"
+    
+    def breathe(self):
+        return "I breathe through my nose"
