@@ -15,7 +15,7 @@ giraffe = Giraffe("Giraffe", "black", 5, 20, False, 20)
 lion = Lion("Lion", "black", 5, 20, False, 20)
 panda = Panda("Panda", "black", 5, 20, False, 20)
 
-Zoo = [fox, chicken, sheep, panda, leaves, grass]
+Zoo = [fox, bug, chicken, fox, grass, sheep, grass]
 
 def AnimalsToStrings(listOfAnimals):
     ZooStrings = []
@@ -29,14 +29,30 @@ def AnimalsToStrings(listOfAnimals):
 # else:
 #     print(panda.eat(grass)[1])
 
+ 
 length = len(Zoo)
-for i in range(0, length):
-    if Zoo[i].eat(Zoo[i+1])[0] == True:
-        print(Zoo[i].value + " eats " + Zoo[i+1].value)
-        Zoo.remove(Zoo[i+1])
-        print(AnimalsToStrings(Zoo))
-        
-# if Zoo[0].eat(Zoo[1])[0] == True:
-#     print(Zoo[0].value + " eats " + Zoo[1].value)
-#     Zoo.remove(Zoo[1])
-#     print(AnimalsToStrings(Zoo))
+for i in range(length): # from fox to grass inclusive
+    if Zoo[i].value == sheep.value:
+        if Zoo[i-1].value == grass.value: # Animal eats to the left first
+            print(Zoo[i].value + " eats " + Zoo[i-1].value)
+            print(len(AnimalsToStrings(Zoo)))
+            Zoo.remove(Zoo[i-1])
+            break
+
+
+# for i in range(length):
+#     if Zoo[i].value == sheep.value:
+#         if Zoo[i-1].value == grass.value: # Animal eats to the left first
+#             print(Zoo[i].value + " eats " + Zoo[i-1].value)
+#             Zoo.remove(Zoo[i-1])
+#             print(AnimalsToStrings(Zoo))
+
+            
+        # elif Zoo[i+1].value == grass.value:
+        #     print(Zoo[i].value + " eats " + Zoo[i+1].value)
+        #     Zoo.remove(Zoo[i+1])
+        #     print(AnimalsToStrings(Zoo))
+            
+        # else:
+        #     print(Zoo[i].value + " can't eat " + Zoo[i-1].value)
+        #     print(AnimalsToStrings(Zoo))
