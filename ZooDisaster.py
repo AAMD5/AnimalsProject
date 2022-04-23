@@ -29,15 +29,24 @@ def AnimalsToStrings(listOfAnimals):
 # else:
 #     print(panda.eat(grass)[1])
 
- 
 length = len(Zoo)
 for i in range(length): # from fox to grass inclusive
     if Zoo[i].value == sheep.value:
         if Zoo[i-1].value == grass.value: # Animal eats to the left first
             print(Zoo[i].value + " eats " + Zoo[i-1].value)
             print(len(AnimalsToStrings(Zoo)))
+            print("Animals list before left removal", AnimalsToStrings(Zoo))
             Zoo.remove(Zoo[i-1])
+            print("Animals list after left removal", AnimalsToStrings(Zoo))
             break
+        elif Zoo[i+1].value == grass.value: # Animal then eats to the right
+            print(Zoo[i].value + " eats " + Zoo[i+1].value)
+            print(len(AnimalsToStrings(Zoo)))
+            print("Animals list before right removal", AnimalsToStrings(Zoo))
+            Zoo.remove(Zoo[i+1])
+            print("Animals list after right removal", AnimalsToStrings(Zoo))
+            break
+        
 
 
 # for i in range(length):
