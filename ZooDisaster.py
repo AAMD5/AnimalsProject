@@ -42,23 +42,42 @@ def AnimalsToStrings(listOfAnimals):
 
 def animalEat(zooList):
     zooListLength = len(zooList)
+    eat = False
     for i in range(zooListLength): # from fox to sheep inclusive
         if zooList[i].eat(zooList[i-1])[0] == True and i != 0:
             #print(zooList[i].value)
-            print(zooList[i].eat(zooList[i-1])[1])
+            ateAnimal = zooList[i].eat(zooList[i-1])[1]
+            #print(ateAnimal)
             zooList.remove(zooList[i-1])
-            print(AnimalsToStrings(zooList))
+            #print(AnimalsToStrings(zooList))
             break
         
-        i = 0
+        i = 0 # reset loop
         if zooList[i].eat(zooList[i+1])[0] == True:
             #print(zooList[i].value)
-            print(zooList[i].eat(zooList[i+1])[1])
+            ateAnimal = zooList[i].eat(zooList[i+1])[1]
+            #print(ateAnimal)
             zooList.remove(zooList[i+1])
-            print(AnimalsToStrings(zooList))
+            #print(AnimalsToStrings(zooList))
             break
+    
+    return ateAnimal
+         
+def eatStory(zooList):
+    
+    lastAnimal = False
+    story = []
+    while not lastAnimal:
+        a = animalEat(Zoo)
+        story.append(a)
+        if len(Zoo) == 1:
+            story.append(Zoo[0].value)
+            lastAnimal = True
 
-while len(Zoo) > 0:
-    animalEat(Zoo)
-    if len(Zoo) == 1:
-        break
+    return story
+        
+print(eatStory(Zoo))
+    
+# Output 
+# ["fox,bug,chicken,grass,sheep", "chicken eats bug", 
+#  "fox eats chicken", "sheep eats grass", "fox eats sheep", "fox"] 
