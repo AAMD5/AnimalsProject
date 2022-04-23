@@ -1,3 +1,4 @@
+from re import X
 from Animal import *
 
 # creating all objects
@@ -34,35 +35,35 @@ def animalEat(zooList):
     """ function that dictates which animal eats which prey """
     
     zooListLength = len(zooList)
-    for i in range(zooListLength): # from fox to sheep inclusive
-        if zooList[i].eat(zooList[i-1])[0] == True and i != 0:
-            ateAnimal = zooList[i].eat(zooList[i-1])[1] 
-            zooList.remove(zooList[i-1]) # remove left eaten animal
-            break # to stop animal eating more edible animals to the left
-            
-        i = 0 # reset loop
-        if zooList[i].eat(zooList[i+1])[0] == True:
-            ateAnimal = zooList[i].eat(zooList[i+1])[1]
-            zooList.remove(zooList[i+1]) # remove right eaten animal
-            break # to stop animal eating more edible animals to the right
-        
-            
-    return ateAnimal
-         
-def eatStory(preys):
-    
-    """ story of which animal ate which prey """
-    
-    lastAnimal = False
-    story = [AnimalsToStrings(preys)]
+    output = [AnimalsToStrings(zooList)]
+    lastAnimal = False 
     while not lastAnimal:
-        animalEatPrey = animalEat(preys)
-        story.append(animalEatPrey)
-        if len(preys) == 1: # only one animal left
-            story.append(AnimalsToStrings(preys))
-            lastAnimal = True
-
-    return story
+        for i in range(zooListLength): # from fox to sheep inclusive
+            if zooList[i].eat(zooList[i-1])[0] == True and i != 0:
+                ateAnimal = zooList[i].eat(zooList[i-1])[1] 
+                output.append(ateAnimal)
+                print(AnimalsToStrings(zooList))
+                print("Animal eaten to the left:", ateAnimal)
+                zooList.remove(zooList[i-1]) # remove left eaten animal
+                break # reset loop to stop animal eating more animals to the left
+            
+            elif zooList[i].eat(zooList[i+1])[0] == True and i <= zooListLength:
+                ateAnimal = zooList[i].eat(zooList[i+1])[1]
+                output.append(ateAnimal) 
+                print(AnimalsToStrings(zooList))
+                print("Animal eaten to the right:", ateAnimal)
+                zooList.remove(zooList[i+1]) # remove right eaten animal
+                break # reset loop to stop animal eating more animals to the right
+            
+            else:
+                print(AnimalsToStrings(zooList))
+                print("no edible animal left or right for the", zooList[i].value)
+            
+        if len(zooList) == 1: # last animal/s left
+            output.append(AnimalsToStrings(zooList))
+            lastAnimal = True  
+            
+    return output
      
 Zoo = [fox, bug, chicken, grass, sheep]   
-print(eatStory(Zoo))
+print("\nFinal output is", animalEat(Zoo))
