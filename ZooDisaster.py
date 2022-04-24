@@ -1,8 +1,7 @@
-from re import X
+from logging.handlers import BaseRotatingHandler
 from Animal import *
 
 # creating all objects
-
 
 grass = Grass()
 leaves = Leaves()
@@ -32,38 +31,49 @@ def AnimalsToStrings(listOfAnimals):
 
 def animalEat(zooList):
     
-    """ function that dictates which animal eats which prey """
+    """ function that dictates which animal eats which prey and returns output """
     
-    zooListLength = len(zooList)
     output = [AnimalsToStrings(zooList)]
     lastAnimal = False 
+    print("Initial Zoo:", AnimalsToStrings(zooList))
     while not lastAnimal:
-        for i in range(zooListLength): # from fox to sheep inclusive
-            if zooList[i].eat(zooList[i-1])[0] == True and i != 0:
+        for i in range(len(zooList)): 
+            if zooList[i].eat(zooList[i-1])[0] == True and i != 0: # if animal can eat other item to the left
                 ateAnimal = zooList[i].eat(zooList[i-1])[1] 
                 output.append(ateAnimal)
-                print(AnimalsToStrings(zooList))
-                print("Animal eaten to the left:", ateAnimal)
-                zooList.remove(zooList[i-1]) # remove left eaten animal
-                break # reset loop to stop animal eating more animals to the left
+                print("Eaten to the left:", ateAnimal)
+                zooList.remove(zooList[i-1]) # remove left eaten item
+                print("Updated Zoo:", AnimalsToStrings(zooList))
+                break # resets loop to always start from LEFTMOST animal
             
-            elif zooList[i].eat(zooList[i+1])[0] == True and i <= zooListLength:
-                ateAnimal = zooList[i].eat(zooList[i+1])[1]
-                output.append(ateAnimal) 
-                print(AnimalsToStrings(zooList))
-                print("Animal eaten to the right:", ateAnimal)
-                zooList.remove(zooList[i+1]) # remove right eaten animal
-                break # reset loop to stop animal eating more animals to the right
+            elif i < len(zooList) - 1: # to avoid list index out of range error
+                if zooList[i].eat(zooList[i+1])[0] == True: # if animal can eat other item to the right
+                    ateAnimal = zooList[i].eat(zooList[i+1])[1]
+                    output.append(ateAnimal)
+                    print("Eaten to the right:", ateAnimal) 
+                    zooList.remove(zooList[i+1]) # remove right eaten item
+                    print("Updated Zoo:", AnimalsToStrings(zooList))
+                    break # resets loop to always start from LEFTMOST animal
             
-            else:
-                print(AnimalsToStrings(zooList))
-                print("no edible animal left or right for the", zooList[i].value)
-            
-        if len(zooList) == 1: # last animal/s left
-            output.append(AnimalsToStrings(zooList))
-            lastAnimal = True  
+            else: # if no edible items are present either to the left or right
+                for i in range(len(zooList)):
+                    print("no edible item left or right of the", zooList[i].value)
+                    print("Unchanged Zoo:", AnimalsToStrings(zooList))
+                output.append(AnimalsToStrings(zooList))
+                lastAnimal = True
             
     return output
      
-Zoo = [fox, bug, chicken, grass, sheep]   
+Zoo = [fox, bug, chicken, grass, sheep]
+Zoo_2 = [bear, cow, fox, bug, chicken, grass, sheep] 
+Zoo_3 = [cow, bear, cow, fox, cow] 
+Zoo_4 = [cow, leaves, giraffe, bear, fox, grass, sheep, bear, cow, fox, cow] 
+
+print("First Scenario\n") 
 print("\nFinal output is", animalEat(Zoo))
+print("\nSecond Scenario\n")
+print("\nFinal output is", animalEat(Zoo_2))
+print("\nThird Scenario\n")
+print("\nFinal output is", animalEat(Zoo_3))
+print("\nFourth Scenario\n")
+print("\nFinal output is", animalEat(Zoo_4))
