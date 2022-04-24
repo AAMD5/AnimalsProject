@@ -1,4 +1,3 @@
-from logging.handlers import BaseRotatingHandler
 from Animal import *
 
 # creating all objects
@@ -55,7 +54,7 @@ def animalEat(zooList):
                     print("Updated Zoo:", AnimalsToStrings(zooList))
                     break # resets loop to always start from LEFTMOST animal
             
-            else: # if no edible items are present either to the left or right
+            else: # if no edible items are present either to the left or right of the animal
                 for i in range(len(zooList)):
                     print("no edible item left or right of the", zooList[i].value)
                     print("Unchanged Zoo:", AnimalsToStrings(zooList))
