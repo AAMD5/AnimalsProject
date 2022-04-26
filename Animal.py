@@ -230,7 +230,7 @@ class Antelope(Mammal):
 
     def eat(self, otherThing):
         if otherThing.value == "Grass":
-            return True, "Antelope eats grass"
+            return True, "Antelope eats Grass"
         else:
             return False, "Antelope cannot eat " + str(otherThing.value) + "!"
     
@@ -258,7 +258,7 @@ class Bigfish(Animal):
 
     def eat(self, otherThing):
         if otherThing.value == "Little-fish":
-            return True, "Big fish eats little-fish"
+            return True, "Big fish eats Little-fish"
         else:
             return False, "Big fish cannot eat " + str(otherThing.value) + "!"
     
@@ -311,7 +311,7 @@ class Bug(Animal):
 
     def eat(self, otherThing):
         if otherThing.value == "Leaves":
-            return True, "Bug eats leaves"
+            return True, "Bug eats Leaves"
         else:
             return False, "Bug cannot eat " + str(otherThing.value) + "!"
     
@@ -342,11 +342,11 @@ class Bear(Mammal):
         elif otherThing.value == "Leaves":
             return True, "Bear eats leaves"
         elif otherThing.value == "Chicken":
-            return True, "Bear eats chicken"
+            return True, "Bear eats Chicken"
         elif otherThing.value == "Cow":
-            return True, "Bear eats cow"
+            return True, "Bear eats Cow"
         elif otherThing.value == "Sheep":
-            return True, "Bear eats sheep"
+            return True, "Bear eats Sheep"
         else:
             return False, "Bear cannot eat " + str(otherThing.value) + "!"
     
@@ -440,9 +440,9 @@ class Fox(Mammal):
 
     def eat(self, otherThing):
         if otherThing.value == "Chicken":
-            return True, "Fox eats chicken"
+            return True, "Fox eats Chicken"
         elif otherThing.value == "Sheep":
-            return True, "Fox eats sheep"
+            return True, "Fox eats Sheep"
         else:
             return False, "Fox cannot eat " + str(otherThing.value) + "!"
     
@@ -467,7 +467,7 @@ class Giraffe(Mammal):
 
     def eat(self, otherThing):
         if otherThing.value == "Leaves":
-            return True, "Giraffe eats leaves"
+            return True, "Giraffe eats Leaves"
         else:
             return False, "Girrafe cannot eat " + str(otherThing.value) + "!"
     
@@ -492,9 +492,9 @@ class Lion(Mammal):
 
     def eat(self, otherThing):
         if otherThing.value == "Antelope":
-            return True, "Lion eats antelope"
+            return True, "Lion eats Antelope"
         elif otherThing.value == "Cow":
-            return True, "Lion eats cow"
+            return True, "Lion eats Cow"
         else:
             return False, "Lion cannot eat " + str(otherThing.value) + "!"
     
@@ -519,7 +519,7 @@ class Panda(Mammal):
 
     def eat(self, otherThing):
         if otherThing.value == "Leaves":
-            return True, "Panda eats leaves"
+            return True, "Panda eats Leaves"
         else:
             return False, "Panda cannot eat " + str(otherThing.value) + "!"
     

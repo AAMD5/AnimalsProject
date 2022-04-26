@@ -32,7 +32,7 @@ def animalEat(zooList):
     
     """ function that dictates which animal eats which prey and returns output """
     
-    output = [AnimalsToStrings(zooList)]
+    output = [', '.join(AnimalsToStrings(zooList))]
     lastAnimal = False 
     print("Initial Zoo:", AnimalsToStrings(zooList))
     while not lastAnimal:
@@ -58,21 +58,22 @@ def animalEat(zooList):
                 for i in range(len(zooList)):
                     print("no edible item left or right of the", zooList[i].value)
                     print("Unchanged Zoo:", AnimalsToStrings(zooList))
-                output.append(AnimalsToStrings(zooList))
+                output.append(', '.join(AnimalsToStrings(zooList)))
                 lastAnimal = True
             
     return output
      
 Zoo = [fox, bug, chicken, grass, sheep]
 Zoo_2 = [bear, cow, fox, bug, chicken, grass, sheep] 
-Zoo_3 = [cow, bear, cow, fox, cow] 
+Zoo_3 = [cow, bear, cow, fox, cow, grass] 
 Zoo_4 = [cow, leaves, giraffe, bear, fox, grass, sheep, bear, cow, fox, cow] 
 
 print("First Scenario\n") 
 print("\nFinal output is", animalEat(Zoo))
-print("\nSecond Scenario\n")
-print("\nFinal output is", animalEat(Zoo_2))
-print("\nThird Scenario\n")
-print("\nFinal output is", animalEat(Zoo_3))
-print("\nFourth Scenario\n")
-print("\nFinal output is", animalEat(Zoo_4))
+""" Uncomment to run other senarios """
+# print("\nSecond Scenario\n")
+# print("\nFinal output is", animalEat(Zoo_2))
+# print("\nThird Scenario\n")
+# print("\nFinal output is", animalEat(Zoo_3))
+# print("\nFourth Scenario\n")
+# print("\nFinal output is", animalEat(Zoo_4))
